@@ -12,7 +12,7 @@ JaCoCo plugin is configured to get the code coverage metrics for Java code.
 ### Gradle Command-Line
 
     gradlew clean build
- The above command will execute compile, test and build tasks.
+ The above command will execute compile, test, generate code coverage reports and build tasks.
  
 ### Starting the application
 
