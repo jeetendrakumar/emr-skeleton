@@ -16,9 +16,9 @@ JaCoCo plugin is configured to get the code coverage metrics for Java code.
  
 ### Starting the application
 
-Execute the following commant from the root of the project after the project is built.
-java -jar build/libs/emr-skeleton-0.1.0.jar
+Execute the following command from the root of the project after the project is built.
 
+    java -jar build/libs/emr-skeleton-0.1.0.jar
 
 ### Sample REST End points
 
