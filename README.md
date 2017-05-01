@@ -13,3 +13,42 @@ JaCoCo plugin is configured to get the code coverage metrics for Java code.
 
     gradlew clean build
  The above command will execute compile, test and build tasks.
+ 
+### Starting the application
+
+Execute the following commant from the root of the project after the project is built.
+java -jar build/libs/emr-skeleton-0.1.0.jar
+
+
+### Sample REST End points
+
+#### SAVE (HTTP METHOD POST)
+http://localhost:8080/emr/api/v1_0/person 
+
+{
+  "name": "Jeetendra Kumar",
+  "address": "Bangalore",
+  "ssn": "799987987"
+}
+
+#### UPDATE (HTTP METHOD PUT)
+
+{
+  "id" : 1,
+  "name": "Jeetendra Kumar updated",
+  "address": "Bangalore",
+  "ssn": "799987987"
+}
+
+#### GET (HTTP METHOD GET)
+http://localhost:8080/emr/api/v1_0/person/1
+
+
+#### GET ALL (HTTP METHOD GET)
+http://localhost:8080/emr/api/v1_0/persons
+
+#### DELETE (HTTP METHOD DELETE)
+http://localhost:8080/emr/api/v1_0/person/1
+
+
+
