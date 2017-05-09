@@ -1,7 +1,5 @@
 package com.emr.main;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.emr.configuration.CustomUserDetails;
 import com.emr.datarepository.UserRepository;
-import com.emr.security.model.Role;
-import com.emr.security.model.User;
-import com.emr.service.UserService;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.emr.datarepository") 
@@ -28,21 +23,16 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
     
-    
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	
 	@Autowired
-	public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository, UserService service) throws Exception {
-		//Setup a default user if db is empty
-		if (repository.count()==0)
-			service.save(new User("user", "password", Arrays.asList(new Role("USER"), new Role("ACTUATOR"))));
+	public void authenticationManager(AuthenticationManagerBuilder builder, UserRepository repository) throws Exception {
 		builder.userDetailsService(userDetailsService(repository)).passwordEncoder(passwordEncoder);
 	}
 
 	/**
-	 * We return an istance of our CustomUserDetails.
+	 * We return an instance of CustomUserDetails.
 	 * @param repository
 	 * @return
      */
